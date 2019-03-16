@@ -49,8 +49,8 @@
     
     <!-- gittalk -->
     
-      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <link rel="stylesheet" href="/css/gitalk.css">
+      <script src="/js/gitalk.min.js"></script>
     
 </head>
 
@@ -252,17 +252,16 @@
   <div id="gitalk-container"></div>
   <script type="text/javascript">
     (function() {
-        var gitalk = new Gitalk({
-          clientID: '9011580bc4be81516f4c',
-          clientSecret: '165b496f9862ca37cfdb739ca44f8c78023848fe',
-          repo: 'https://github.com/Tingglelaoo/tingglelaoo.github.io.git',
-          owner: 'tingglelaoo',
-          admin: ['tingglelaoo'],
-          id: location.pathname,      // Ensure uniqueness and length less than 50
-          distractionFreeMode: false  // Facebook-like distraction free mode
-        })
-
-        gitalk.render('gitalk-container')
+      var gitalk = new Gitalk({
+        clientID: '{{ theme.gitalk.ClientID }}',
+        clientSecret: '{{ theme.gitalk.ClientSecret }}',
+        repo: '{{ theme.gitalk.repo }}',
+        owner: '{{ theme.gitalk.githubID }}',
+        admin: ['{{ theme.gitalk.adminUser }}'],
+        id: decodeURI(location.pathname),
+        distractionFreeMode: '{{ theme.gitalk.distractionFreeMode }}'
+      })
+      gitalk.render('gitalk-container')
     })();
   </script>
 
