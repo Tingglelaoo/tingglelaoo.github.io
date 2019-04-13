@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>三分钟学会 BEM 命名法</title>
+      <link href="/2019/04/14/quick-learn-bem-naming/"/>
+      <url>/2019/04/14/quick-learn-bem-naming/</url>
+      
+        <content type="html"><![CDATA[<p>BEM 指的是 Block、Element、Modifier，BEM 命名法把 CSS 类名归纳为这三种类型。</p><h2 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h2><p>封装一个具有独立意义的实体，如 header、 container、 menu、 checkbox、input。</p><p>Block可以相互嵌套，但是在语意上让他们保持相互的独立，没有优先级或层次结构。</p><h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><p>由字母、数字和破折号组成。</p><pre><code class="scss">.list {}.cate-list {}</code></pre><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul><li>仅使用类名选择器，不能使用标签名或 ID</li><li>不依赖页面上的其他 Block/Elements，不存在级联选择器</li></ul><pre><code class="HTML">&lt;div class=&quot;block&quot;&gt;...&lt;/div&gt;</code></pre><pre><code class="scss">// bad.block-a .block-b {}// good.block {}</code></pre><p><strong>允许以下这种情况：</strong></p><pre><code class="scss">.category {}.category-tab {}.category-main {}.category-banner {}</code></pre><p>注意，这种情况存在合理的，因为：</p><ul><li>组件复杂、颗粒度大，可以拆分独立重复使用的模块</li><li>这相当于css 命名上拆成了4 个组件，使用者其实不关心内部的css 命名，bem 主要能解决样式重名的问题就好</li></ul><hr><h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>在给定的 Block 内的任何 DOM 都可以成为一个 Element，在语意上属于 Block 的一部分，如 menu item、 list item、checkbox caption、header title。</p><h3 id="命名-1"><a href="#命名-1" class="headerlink" title="命名"></a>命名</h3><p>由 Block 名称加两个下划线加 Element 名称构成，Element 名称同样支持字母、数字、破折号。</p><pre><code class="scss">.block__element {}.block__element-val {}</code></pre><h3 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h3><ul><li>仅使用类名选择器，不能使用标签名或 ID</li><li>不依赖页面上的其他 Block/Elements，不存在级联选择器</li><li>可以基于 Block 的状态进行行为改变</li></ul><pre><code class="HTML">&lt;div class=&quot;block&quot;&gt;  &lt;span class=&quot;block__elem&quot;&gt;&lt;/span&gt;&lt;/div&gt;</code></pre><pre><code class="scss">// bad.block .block__elem {}// good.block__elem {}// good：基于 block 状态变化的 elem.block--mod .block__elem {}</code></pre><hr><h2 id="Modifier"><a href="#Modifier" class="headerlink" title="Modifier"></a>Modifier</h2><p>指向 Block 或者 Element 的状态修饰，用来改变外观或行为，如 disabled、 highlighted、 checked、 fixed、 size big、color yellow。</p><h3 id="命名-2"><a href="#命名-2" class="headerlink" title="命名"></a>命名</h3><p>由 Block 或 Element 的命名加上两个破折号加上 Modifier 名称。</p><pre><code class="scss">.block--mod {}.block__element--mod {}</code></pre><h3 id="注意点-2"><a href="#注意点-2" class="headerlink" title="注意点"></a>注意点</h3><ul><li>作为 Block、Element 的类名中额外的扩展，不能单独使用</li></ul><pre><code class="HTML">&lt;div class=&quot;block block--mod&quot;&gt;  &lt;div class=&quot;block__elem&quot;&gt;...&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;block block--size-big block--color-red&quot;&gt;...&lt;/div&gt;</code></pre><pre><code class="scss">// bad.block--color--red {}// good：作为 block 的状态修饰.block--color-red {}// good：作为 elem 的状态修饰.block__elem--mod {}</code></pre><hr><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p>Block 样式不需要依赖页面上的其他元素，每个Block 样式都是独立的。</p><h3 id="重用性"><a href="#重用性" class="headerlink" title="重用性"></a>重用性</h3><p>以不同的方式组成独立的 Blocks，减少可维护css代码量。</p><p>在复用样式的时候，完全可以直接迁移，而不考虑是否有级联样式的遗漏。</p><h3 id="结构化"><a href="#结构化" class="headerlink" title="结构化"></a>结构化</h3><p>如果样式命名符合 BEM 命名法的规则，那么从 CSS 代码分析就可以快速了解对应的 HTML DOM 结构。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="http://getbem.com" target="_blank" rel="noopener">BEM 官网</a></li><li><a href="https://www.cnblogs.com/monsterooo/p/6706520.html" target="_blank" rel="noopener">BEM 中文翻译</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BEM,CSS命名,命名法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2019/03/16/hello-world/"/>
       <url>/2019/03/16/hello-world/</url>
